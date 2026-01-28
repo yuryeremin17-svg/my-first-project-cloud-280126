@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Код для доступа</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 { color: #333; }
+        .address {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f0f0f0;
+            border-radius: 10px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 Подключение с телефона</h1>
+        <p>Откройте на телефоне браузер и введите:</p>
+        <div class="address">http://192.168.2.129:3000</div>
+        <p><strong>Важно:</strong> Обязательно напишите <code>http://</code> в начале!</p>
+        <hr style="margin: 2rem 0;">
+        <p>Или отсканируйте QR-код:</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=http://192.168.2.129:3000" alt="QR код">
+    </div>
+</body>
+</html>
