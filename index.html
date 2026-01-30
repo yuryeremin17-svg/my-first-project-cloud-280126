@@ -3,9 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Привет</title>
+    <title>AI Business Analyzer - Анализ бизнеса за 60 секунд</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>привет</h1>
+<body class="font-sans">
+    <!-- HERO -->
+    <section class="bg-gradient-to-br from-blue-50 to-white py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                Детальный Бизнес-Анализ за 24 часа
+            </h1>
+            <p class="text-xl text-gray-600 mb-8">
+                AI + эксперт анализируют ваш бизнес и дают конкретный план на 90 дней
+            </p>
+            <a href="order.html" class="inline-block bg-blue-600 text-white text-lg font-semibold px-8 py-4 rounded-lg hover:bg-blue-700">
+                Заказать анализ за $19 →
+            </a>
+        </div>
+    </section>
+
+    <!-- ПРИМЕРЫ ОТЧЁТОВ -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4">Посмотрите что вы получите</h2>
+            <p class="text-center text-gray-600 mb-12">Реальные примеры отчётов для разных типов бизнеса</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="border rounded-lg p-6 hover:shadow-lg transition">
+                    <div class="text-5xl mb-4">☕</div>
+                    <h3 class="text-xl font-bold mb-2">Кофейня "Утро"</h3>
+                    <p class="text-gray-600 mb-4">Салон красоты, барбершоп, кафе</p>
+                    <a href="report-coffeeshop.html" target="_blank" class="text-blue-600 font-semibold hover:underline">Открыть пример →</a>
+                </div>
+                <div class="border rounded-lg p-6 hover:shadow-lg transition">
+                    <div class="text-5xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold mb-2">SaaS Startup</h3>
+                    <p class="text-gray-600 mb-4">Стартапы, онлайн-сервисы, приложения</p>
+                    <a href="report-saas.html" target="_blank" class="text-blue-600 font-semibold hover:underline">Открыть пример →</a>
+                </div>
+                <div class="border rounded-lg p-6 hover:shadow-lg transition">
+                    <div class="text-5xl mb-4">🛒</div>
+                    <h3 class="text-xl font-bold mb-2">Интернет-магазин</h3>
+                    <p class="text-gray-600 mb-4">E-commerce, Wildberries, Ozon</p>
+                    <a href="report-ecommerce.html" target="_blank" class="text-blue-600 font-semibold hover:underline">Открыть пример →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ЧТО ВНУТРИ -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Что входит в анализ</h2>
+            <div class="space-y-6">
+                <div class="flex gap-4">
+                    <div class="text-green-500 text-2xl">✅</div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">Executive Summary</h3>
+                        <p class="text-gray-600">Краткая сводка на 1 странице для руководства</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="text-green-500 text-2xl">✅</div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">Quick Wins (Топ-3 действия)</h3>
+                        <p class="text-gray-600">Конкретные шаги которые можно внедрить уже завтра</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="text-green-500 text-2xl">✅</div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">90-дневный план действий</h3>
+                        <p class="text-gray-600">Детальный план: что делать неделя за неделей</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="text-green-500 text-2xl">✅</div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">ROI расчёты и прогнозы</h3>
+                        <p class="text-gray-600">Сколько можете заработать если внедрите рекомендации</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="text-green-500 text-2xl">✅</div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">PDF + Word + PowerPoint</h3>
+                        <p class="text-gray-600">Все форматы для вас и вашей команды</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="text-green-500 text-2xl">✅</div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">Проверено человеком</h3>
+                        <p class="text-gray-600">Каждый отчёт проверяется экспертом 30-60 минут</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4">Какую проблему решаем</h2>
+            <p class="text-center text-gray-600 text-xl mb-12">Выберите цель — получите конкретный план</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="border-2 border-gray-200 rounded-2xl p-8 hover:border-blue-500 hover:shadow-lg transition">
+                    <div class="text-5xl mb-4">📈</div>
+                    <h3 class="text-2xl font-bold mb-3">Увеличить выручку</h3>
+                    <p class="text-gray-600 mb-4">Найдите новые каналы привлечения клиентов, оптимизируйте воронку продаж, поднимите средний чек.</p>
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <p class="text-sm text-gray-700"><strong>Подходит для:</strong> Кафе • Салоны • Ритейл • Услуги • E-commerce</p>
+                    </div>
+                </div>
+
+                <div class="border-2 border-gray-200 rounded-2xl p-8 hover:border-blue-500 hover:shadow-lg transition">
+                    <div class="text-5xl mb-4">🔄</div>
+                    <h3 class="text-2xl font-bold mb-3">Удержать клиентов</h3>
+                    <p class="text-gray-600 mb-4">Разработайте программу лояльности, улучшите customer experience, увеличьте процент повторных покупок.</p>
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <p class="text-sm text-gray-700"><strong>Подходит для:</strong> Подписки • SaaS • Членства • Клубы • Салоны</p>
+                    </div>
+                </div>
+
+                <div class="border-2 border-gray-200 rounded-2xl p-8 hover:border-blue-500 hover:shadow-lg transition">
+                    <div class="text-5xl mb-4">💰</div>
+                    <h3 class="text-2xl font-bold mb-3">Снизить расходы</h3>
+                    <p class="text-gray-600 mb-4">Оптимизируйте операции, автоматизируйте процессы, урежьте неэффективный маркетинг и повысьте прибыль.</p>
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <p class="text-sm text-gray-700"><strong>Подходит для:</strong> Производство • Агентства • E-commerce • Офлайн-ритейл</p>
+                    </div>
+                </div>
+
+                <div class="border-2 border-gray-200 rounded-2xl p-8 hover:border-blue-500 hover:shadow-lg transition">
+                    <div class="text-5xl mb-4">🚀</div>
+                    <h3 class="text-2xl font-bold mb-3">Масштабировать бизнес</h3>
+                    <p class="text-gray-600 mb-4">Подготовьтесь к росту: выстройте процессы, соберите команду, внедрите технологии для масштабирования.</p>
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <p class="text-sm text-gray-700"><strong>Подходит для:</strong> Стартапы • Франшизы • Сети • Растущий бизнес</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center bg-gray-50 rounded-2xl p-8">
+                <p class="text-lg text-gray-700 mb-2">
+                    <strong>Не нашли свою цель?</strong> Не проблема!
+                </p>
+                <p class="text-gray-600">
+                    Анализ подходит для любого малого бизнеса с выручкой от 100,000₽ до 10,000,000₽ в месяц. Опишите свою ситуацию в форме — эксперт адаптирует рекомендации под вас.
+                </p>
+            </div>
+
+            <!-- MID-PAGE CTA -->
+            <div class="mt-16 text-center">
+                <a href="order.html" class="inline-block bg-blue-600 text-white text-lg font-semibold px-8 py-4 rounded-lg hover:bg-blue-700 transition shadow-lg">
+                    Заказать анализ за $19 →
+                </a>
+                <p class="mt-4 text-sm text-gray-500">💯 Гарантия возврата • ⚡ Результат через 24 часа</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ГАРАНТИЯ -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-white border-4 border-green-500 rounded-2xl p-8 text-center">
+                <div class="text-6xl mb-4">💯</div>
+                <h2 class="text-3xl font-bold mb-4">ГАРАНТИЯ 100% ВОЗВРАТА ДЕНЕГ</h2>
+                <p class="text-lg mb-2">Если отчёт вам не понравится - вернём все $19 без вопросов.</p>
+                <p class="text-sm text-gray-600">Срок: 7 дней после получения</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- КАК РАБОТАЕТ -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Как это работает</h2>
+            <div class="space-y-8">
+                <div class="flex gap-6">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">1</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Заполните форму</h3>
+                        <p class="text-gray-600">Ответьте на 17 вопросов о вашем бизнесе. Займёт ~10 минут.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">2</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Оплатите $19</h3>
+                        <p class="text-gray-600">Безопасная оплата через Stripe. Все платёжные методы.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">3</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Получите отчёт</h3>
+                        <p class="text-gray-600">Через 24 часа получите детальный анализ на email в PDF, Word и PowerPoint.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Частые вопросы</h2>
+            <div class="space-y-4">
+                <details class="bg-white p-6 rounded-lg">
+                    <summary class="font-bold cursor-pointer text-lg">❓ Что конкретно входит в отчёт?</summary>
+                    <div class="mt-4 text-gray-600 space-y-2">
+                        <p><strong>1. Executive Summary</strong> — краткая сводка на 1 страницу с ключевыми выводами и цифрами. Идеально для быстрого ознакомления руководства.</p>
+                        <p><strong>2. Quick Wins</strong> — топ-3 конкретных действия которые можно внедрить уже завтра. С расчётом окупаемости и сроками.</p>
+                        <p><strong>3. 90-дневный план</strong> — детальный помесячный план с чек-листами. Что делать в первую неделю, первый месяц, второй, третий.</p>
+                        <p><strong>4. Финансовые прогнозы</strong> — сколько можете заработать если внедрите рекомендации. С консервативным и оптимистичным сценариями.</p>
+                    </div>
+                </details>
+                <details class="bg-white p-6 rounded-lg">
+                    <summary class="font-bold cursor-pointer text-lg">❓ Это полностью автоматический AI или проверяется человеком?</summary>
+                    <div class="mt-4 text-gray-600 space-y-2">
+                        <p><strong>1. AI генерирует черновик за 60 секунд</strong> — анализирует 4 эксперта: аналитик, CFO, маркетолог и операционный директор.</p>
+                        <p><strong>2. Человек проверяет 30-60 минут</strong> — реальный эксперт вычитывает, проверяет цифры, корректирует под вашу специфику.</p>
+                        <p><strong>3. Финальная версия</strong> — вы получаете отчёт который прошёл двойную проверку: AI + человек. Гарантия качества.</p>
+                    </div>
+                </details>
+                <details class="bg-white p-6 rounded-lg">
+                    <summary class="font-bold cursor-pointer text-lg">❓ Как быстро получу отчёт и в каких форматах?</summary>
+                    <div class="mt-4 text-gray-600 space-y-2">
+                        <p><strong>1. Срок</strong> — в течение 24 часов после оплаты. Обычно быстрее (12-18 часов), но даём запас времени на проверку.</p>
+                        <p><strong>2. Форматы</strong> — PDF (для чтения), Word (для редактирования), PowerPoint (для презентации команде). Все три формата одновременно.</p>
+                        <p><strong>3. Доставка</strong> — письмо на ваш email со ссылками на скачивание. Файлы хранятся 30 дней на нашем сервере.</p>
+                    </div>
+                </details>
+                <details class="bg-white p-6 rounded-lg">
+                    <summary class="font-bold cursor-pointer text-lg">❓ Подходит ли для моей ниши или бизнеса?</summary>
+                    <div class="mt-4 text-gray-600 space-y-2">
+                        <p><strong>1. Локальный бизнес</strong> — кафе, рестораны, салоны красоты, барбершопы, фитнес-клубы, автосервисы. Анализируем проходимость, локальный маркетинг.</p>
+                        <p><strong>2. Онлайн-бизнес</strong> — SaaS стартапы, интернет-магазины, онлайн-сервисы, приложения. Метрики, воронки, каналы привлечения.</p>
+                        <p><strong>3. Специфичные ниши</strong> — работаем с нишами которые не в списке. Укажите в форме подробное описание — эксперт адаптирует анализ под вас.</p>
+                    </div>
+                </details>
+                <details class="bg-white p-6 rounded-lg">
+                    <summary class="font-bold cursor-pointer text-lg">❓ Что делать после получения отчёта?</summary>
+                    <div class="mt-4 text-gray-600 space-y-2">
+                        <p><strong>1. Прочитайте Executive Summary</strong> — займёт 5 минут. Поймёте главные проблемы и возможности.</p>
+                        <p><strong>2. Внедрите Quick Wins</strong> — начните с топ-3 действий которые дадут быстрый результат. Обычно окупаются за 2-4 недели.</p>
+                        <p><strong>3. Следуйте 90-дневному плану</strong> — используйте чек-листы для отслеживания прогресса. Каждую неделю выполняйте пункты плана.</p>
+                    </div>
+                </details>
+                <details class="bg-white p-6 rounded-lg">
+                    <summary class="font-bold cursor-pointer text-lg">❓ Нужны ли специальные знания чтобы понять отчёт?</summary>
+                    <div class="mt-4 text-gray-600 space-y-2">
+                        <p><strong>1. Простой язык</strong> — никаких MBA терминов и сложных формул. Всё написано так чтобы понял любой владелец бизнеса.</p>
+                        <p><strong>2. Конкретные действия</strong> — не "улучшите маркетинг", а "запустите Instagram Stories 3 раза в неделю с меню дня".</p>
+                        <p><strong>3. Объяснения цифр</strong> — каждый расчёт сопровождается пояснением откуда взялись цифры и что они значат.</p>
+                    </div>
+                </details>
+                <details class="bg-white p-6 rounded-lg">
+                    <summary class="font-bold cursor-pointer text-lg">❓ Что если мне не понравится отчёт?</summary>
+                    <div class="mt-4 text-gray-600 space-y-2">
+                        <p><strong>1. Гарантия возврата 100%</strong> — если отчёт не оправдал ожидания, вернём все $19. Без вопросов и объяснений.</p>
+                        <p><strong>2. Срок 7 дней</strong> — у вас есть неделя после получения отчёта чтобы решить. Просто напишите на support@aibusinessanalyzer.com.</p>
+                        <p><strong>3. Доработка</strong> — перед возвратом предложим доработать отчёт бесплатно. Возможно мы что-то упустили и можем исправить.</p>
+                    </div>
+                </details>
+                <details class="bg-white p-6 rounded-lg">
+                    <summary class="font-bold cursor-pointer text-lg">❓ Можно ли редактировать отчёт под себя?</summary>
+                    <div class="mt-4 text-gray-600 space-y-2">
+                        <p><strong>1. Word версия</strong> — полностью редактируемая. Добавляйте свои комментарии, меняйте цифры, адаптируйте под команду.</p>
+                        <p><strong>2. PowerPoint версия</strong> — используйте для презентации партнёрам или инвесторам. Меняйте слайды как хотите.</p>
+                        <p><strong>3. Брендирование</strong> — можете добавить свой логотип и фирменные цвета. Файлы ваши, делайте что угодно.</p>
+                    </div>
+                </details>
+                <details class="bg-white p-6 rounded-lg">
+                    <summary class="font-bold cursor-pointer text-lg">❓ Безопасно ли передавать данные о бизнесе?</summary>
+                    <div class="mt-4 text-gray-600 space-y-2">
+                        <p><strong>1. Конфиденциальность</strong> — все данные которые вы указываете в форме защищены и не передаются третьим лицам. Только для вашего анализа.</p>
+                        <p><strong>2. Удаление данных</strong> — через 30 дней после доставки отчёта все ваши данные автоматически удаляются из системы.</p>
+                        <p><strong>3. Безопасная оплата</strong> — платежи проходят через Stripe — надёжный процессор который используют Shopify, Uber, Amazon.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ФИНАЛЬНЫЙ CTA -->
+    <section id="order" class="py-20 px-4 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">Готовы получить план роста для вашего бизнеса?</h2>
+            <p class="text-xl mb-8 opacity-90">Присоединяйтесь к предпринимателям которые уже улучшили свой бизнес</p>
+            <a href="order.html" class="inline-block bg-white text-blue-600 text-lg font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition">
+                Заказать анализ за $19 →
+            </a>
+            <div class="mt-6 space-y-2 text-sm">
+                <p>💯 Гарантия возврата денег</p>
+                <p>⚡ Результат через 24 часа</p>
+                <p>✅ Проверено человеком</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-8 px-4 text-center">
+        <p class="mb-2">AI Business Analyzer © 2026</p>
+        <p class="text-sm">
+            <a href="#" class="hover:text-white">Политика конфиденциальности</a>
+            <span class="mx-2">|</span>
+            <a href="#" class="hover:text-white">Условия использования</a>
+        </p>
+    </footer>
+
 </body>
 </html>

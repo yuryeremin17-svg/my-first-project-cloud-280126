@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказать анализ - AI Business Analyzer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gray-50">
+
+    <!-- HEADER -->
+    <header class="bg-white border-b">
+        <div class="max-w-4xl mx-auto px-4 py-6">
+            <a href="index.html" class="text-blue-600 hover:text-blue-700 font-semibold">← Вернуться на главную</a>
+        </div>
+    </header>
+
+    <!-- FORM SECTION -->
+    <section class="py-12 px-4">
+        <div class="max-w-2xl mx-auto">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Получите анализ вашего бизнеса
+                </h1>
+                <p class="text-xl text-gray-600 mb-2">Заполните форму — это займёт ~10 минут</p>
+                <p class="text-lg text-blue-600 font-semibold">Стоимость: $19</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <form id="orderForm" class="space-y-6">
+
+                    <!-- 1. Тип бизнеса -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-3">
+                            1. Какой у вас бизнес?
+                        </label>
+                        <select name="business_type" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none text-lg">
+                            <option value="">Выберите тип бизнеса</option>
+                            <option value="cafe">Кафе / Ресторан / Бар</option>
+                            <option value="beauty">Салон красоты / Барбершоп</option>
+                            <option value="saas">SaaS / Стартап / Онлайн-сервис</option>
+                            <option value="ecommerce">Интернет-магазин / Маркетплейс</option>
+                            <option value="retail">Розничный магазин</option>
+                            <option value="fitness">Фитнес / Спорт</option>
+                            <option value="education">Образование / Курсы</option>
+                            <option value="service">Услуги (ремонт, клининг и т.д.)</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+
+                    <!-- 2. Название компании -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-3">
+                            2. Название вашей компании
+                        </label>
+                        <input type="text" name="company_name" required placeholder="Например: Кофейня Утро" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none text-lg">
+                    </div>
+
+                    <!-- 3. Описание бизнеса -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-3">
+                            3. Чем занимается ваша компания?
+                        </label>
+                        <textarea name="business_description" required rows="3" placeholder="Например: Продаём кофе навынос, сэндвичи и десерты для офисных работников" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none text-lg resize-none"></textarea>
+                        <p class="text-sm text-gray-500 mt-2">Опишите в 1-2 предложениях что вы продаете или какие услуги оказываете</p>
+                    </div>
+
+                    <!-- 4. Регион -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-3">
+                            4. В каком городе/регионе работаете?
+                        </label>
+                        <input type="text" name="location" required placeholder="Например: Москва, Россия" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none text-lg">
+                    </div>
+
+                    <!-- 5. Целевая аудитория -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-3">
+                            5. Кто ваши клиенты?
+                        </label>
+                        <input type="text" name="target_audience" required placeholder="Например: Офисные работники 25-45 лет" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none text-lg">
+                    </div>
+
+                    <!-- 6. Количество сотрудников -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-3">
+                            6. Сколько у вас сотрудников?
+                        </label>
+                        <select name="employees" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none text-lg">
+                            <option value="">Выберите</option>
+                            <option value="solo">Только я (соло)</option>
+                            <option value="2-5">2-5 человек</option>
+                            <option value="6-10">6-10 человек</option>
+                            <option value="11-20">11-20 человек</option>
+                            <option value="20plus">Больше 20</option>
+                        </select>
+                    </div>
+
+                    <!-- 7. Время работы -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-3">
+                            7. Сколько времени работаете?
+                        </label>
+                        <select name="years_in_business" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none text-lg">
+                            <option value="">Выберите период</option>
+                            <option value="less_6months">Меньше 6 месяцев</option>
+                            <option value="6months_1year">6 месяцев - 1 год</option>
+                            <option value="1_2years">1-2 года</option>
+                            <option value="2_5years">2-5 лет</option>
+                            <option value="5plus">Больше 5 лет</option>
+                        </select>
+                    </div>
+
+                    <!-- 8. Месячная выручка -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-3">
+                            8. Месячная выручка (примерно)
+                        </label>
+                        <select name="monthly_revenue" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none text-lg">
+                            <option value="">Выберите диапазон</option>
+                            <option value="less_100k">Меньше 100,000₽ ($1,000)</option>
+                            <option value="100k_500k">100,000₽ - 500,000₽ ($1k-$5k)</option>
+                            <option value="500k_1m">500,000₽ - 1,000,000₽ ($5k-$10k)</option>
+                            <option value="1m_3m">1,000,000₽ - 3,000,000₽ ($10k-$30k)</option>
+                            <option value="3m_10m">3,000,000₽ - 10,000,000₽ ($30k-$100k)</option>
+                            <option value="10m_plus">Больше 10,000,000₽ ($100k+)</option>
+                        </select>
+                    </div>
+
+                    <!-- 9. Конкуренты -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-3">
+                            9. Есть ли у вас конкуренты?
+                        </label>
+                        <select name="competitors" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none text-lg">
+                            <option value="">Выберите</option>
+                            <option value="no_competitors">Нет, я единственный в районе/нише</option>
+                            <option value="1-3">Да, 1-3 прямых конкурента</option>
+                            <option value="4-10">Да, 4-10 конкурентов</option>
+                            <option value="many">Много конкурентов (10+)</option>
+                            <option value="unknown">Не знаю точно</option>
+                        </select>
+                    </div>
+
+                    <!-- 10. Средний чек -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-3">
+                            10. Средний чек (сколько клиент платит за покупку)?
+                        </label>
+                        <input type="text" name="average_check" required placeholder="Например: 450₽ или $25" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none text-lg">
+                    </div>
+
+                    <!-- 11. Процент повторных клиентов -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-3">
+                            11. Сколько % клиентов возвращаются повторно?
+                        </label>
+                        <select name="repeat_customers" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none text-lg">
+                            <option value="">Выберите</option>
+                            <option value="unknown">Не знаю / Не отслеживаю</option>
+                            <option value="less_10">Почти никто (меньше 10%)</option>
+                            <option value="10-30">10-30%</option>
+                            <option value="30-50">30-50%</option>
+                            <option value="50-70">50-70%</option>
+                            <option value="70plus">Больше 70%</option>
+                        </select>
+                    </div>
+
+                    <!-- 12. Маркетинговые каналы -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-3">
+                            12. Какие маркетинговые каналы используете? (выберите все)
+                        </label>
+                        <div class="space-y-3">
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" name="channel_instagram" value="yes" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                <span class="text-lg">Instagram</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" name="channel_vk" value="yes" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                <span class="text-lg">ВКонтакте</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" name="channel_telegram" value="yes" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                <span class="text-lg">Telegram</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" name="channel_yandex" value="yes" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                <span class="text-lg">Яндекс.Директ / Google Ads</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" name="channel_seo" value="yes" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                <span class="text-lg">SEO / Поисковая выдача</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" name="channel_email" value="yes" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                <span class="text-lg">Email рассылки</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" name="channel_outdoor" value="yes" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                <span class="text-lg">Наружная реклама / Вывеска</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" name="channel_referral" value="yes" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                <span class="text-lg">Сарафанное радио / Рекомендации</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" name="channel_none" value="yes" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                <span class="text-lg">Не использую маркетинг</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 13. Сайт и соцсети -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-3">
+                            13. Ссылки на сайт и соцсети (если есть)
+                        </label>
+                        <input type="text" name="website_social" placeholder="Например: instagram.com/myshop, myshop.ru" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none text-lg">
+                        <p class="text-sm text-gray-500 mt-2">Необязательно, но поможет лучше понять ваш бизнес</p>
+                    </div>
+
+                    <!-- 14. Бюджет на рекламу -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-3">
+                            14. Сколько тратите на рекламу в месяц?
+                        </label>
+                        <select name="ad_budget" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none text-lg">
+                            <option value="">Выберите</option>
+                            <option value="0">Ничего не трачу</option>
+                            <option value="up_10k">До 10,000₽ ($100)</option>
+                            <option value="10k-50k">10,000₽ - 50,000₽ ($100-$500)</option>
+                            <option value="50k-100k">50,000₽ - 100,000₽ ($500-$1000)</option>
+                            <option value="100k-300k">100,000₽ - 300,000₽ ($1k-$3k)</option>
+                            <option value="300k_plus">Больше 300,000₽ ($3k+)</option>
+                        </select>
+                    </div>
+
+                    <!-- 15. Главная проблема -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-3">
+                            15. Какая главная проблема в бизнесе прямо сейчас?
+                        </label>
+                        <textarea name="main_problem" required rows="4" placeholder="Например: Клиенты приходят 1 раз и не возвращаются. Не понимаю почему." class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none text-lg resize-none"></textarea>
+                    </div>
+
+                    <!-- 16. Конкретная цель на 90 дней -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-3">
+                            16. Какая главная цель на ближайшие 90 дней?
+                        </label>
+                        <textarea name="goal_90days" required rows="3" placeholder="Например: Увеличить выручку до 1,200,000₽ в месяц или Найти 100 новых постоянных клиентов" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none text-lg resize-none"></textarea>
+                        <p class="text-sm text-gray-500 mt-2">Будьте конкретны: цифры, сроки, результаты</p>
+                    </div>
+
+                    <!-- 17. Email -->
+                    <div>
+                        <label class="block text-lg font-semibold text-gray-900 mb-3">
+                            17. Ваш email для получения отчёта
+                        </label>
+                        <input type="email" name="email" required placeholder="your@email.com" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none text-lg">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="pt-4">
+                        <button type="submit" class="w-full bg-blue-600 text-white text-xl font-bold py-4 rounded-lg hover:bg-blue-700 transition">
+                            Продолжить к оплате ($19) →
+                        </button>
+                        <p class="text-center text-gray-600 mt-4 text-sm">
+                            💯 Гарантия возврата денег в течение 7 дней
+                        </p>
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- Trust signals -->
+            <div class="mt-8 text-center space-y-2 text-gray-600">
+                <p>✅ Отчёт готов через 24 часа</p>
+                <p>✅ Проверяется реальным экспертом 30-60 минут</p>
+                <p>✅ PDF + Word + PowerPoint форматы</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-8 px-4 text-center mt-12">
+        <p class="mb-2">AI Business Analyzer © 2026</p>
+        <p class="text-sm">
+            <a href="#" class="hover:text-white">Политика конфиденциальности</a>
+            <span class="mx-2">|</span>
+            <a href="#" class="hover:text-white">Условия использования</a>
+        </p>
+    </footer>
+
+    <script>
+        // Stripe Payment Link Integration
+        // ВАЖНО: Замените эту ссылку на вашу настоящую Stripe Payment Link после создания
+        const STRIPE_PAYMENT_LINK = 'YOUR_STRIPE_PAYMENT_LINK_HERE';
+
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Собираем все данные формы
+            const formData = new FormData(this);
+            const formDataObj = {};
+
+            // Конвертируем FormData в обычный объект
+            formData.forEach((value, key) => {
+                // Для чекбоксов собираем все отмеченные значения
+                if (key.startsWith('channel_')) {
+                    if (!formDataObj.marketing_channels) {
+                        formDataObj.marketing_channels = [];
+                    }
+                    if (value === 'yes') {
+                        formDataObj.marketing_channels.push(key.replace('channel_', ''));
+                    }
+                } else {
+                    formDataObj[key] = value;
+                }
+            });
+
+            // Конвертируем массив каналов в строку
+            if (formDataObj.marketing_channels) {
+                formDataObj.marketing_channels = formDataObj.marketing_channels.join(', ');
+            }
+
+            // Сохраняем данные в localStorage
+            localStorage.setItem('orderFormData', JSON.stringify(formDataObj));
+            localStorage.setItem('orderFormTimestamp', Date.now());
+
+            // Редирект на Stripe Payment Link
+            // ЗАМЕНИТЕ URL НИЖЕ НА ВАШ НАСТОЯЩИЙ STRIPE PAYMENT LINK
+            // window.location.href = STRIPE_PAYMENT_LINK;
+
+            // Для тестирования без Stripe - раскомментируйте строку ниже и закомментируйте строку выше:
+            window.location.href = 'thank-you.html';
+        });
+    </script>
+
+</body>
+</html>

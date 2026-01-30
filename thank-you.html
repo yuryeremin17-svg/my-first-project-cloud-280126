@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Спасибо за заказ! - AI Business Analyzer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gray-50">
+
+    <section class="py-20 px-4 min-h-screen flex items-center justify-center">
+        <div class="max-w-2xl mx-auto text-center">
+            <div class="bg-white rounded-2xl shadow-lg p-12">
+                <div class="text-6xl mb-6" id="statusIcon">⏳</div>
+                <h1 class="text-4xl font-bold text-gray-900 mb-4" id="statusTitle">Обрабатываем заказ...</h1>
+                <p class="text-xl text-gray-600 mb-8" id="statusMessage">Пожалуйста, подождите несколько секунд</p>
+
+                <div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 mb-8 text-left" id="nextSteps" style="display: none;">
+                    <h2 class="text-lg font-bold text-gray-900 mb-3">Что дальше:</h2>
+                    <ol class="space-y-3 text-gray-700">
+                        <li><strong>1. Подтверждение отправлено</strong> — проверьте ваш email</li>
+                        <li><strong>2. Эксперт получил заявку</strong> — начинаем работу над анализом</li>
+                        <li><strong>3. Отчёт будет готов</strong> в течение 24 часов</li>
+                        <li><strong>4. Получите 3 формата</strong> — PDF, Word и PowerPoint</li>
+                    </ol>
+                </div>
+
+                <div class="bg-green-50 border-2 border-green-200 rounded-xl p-6 mb-8 text-left" id="successBox" style="display: none;">
+                    <p class="text-sm text-gray-700">
+                        <strong>✅ Оплата успешно прошла!</strong> Ваша заявка отправлена эксперту. Отчёт придёт на указанный email в течение 24 часов.
+                    </p>
+                </div>
+
+                <a href="index.html" class="inline-block bg-blue-600 text-white text-lg font-semibold px-8 py-3 rounded-lg hover:bg-blue-700" id="homeButton" style="display: none;">
+                    Вернуться на главную
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Скрытая форма для отправки данных через FormSubmit -->
+    <form id="hiddenForm" action="https://formsubmit.co/jeremin17@mail.ru" method="POST" style="display: none;">
+        <input type="hidden" name="_subject" value="💰 ОПЛАЧЕНО! Новый заказ AI Business Analyzer">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_autoresponse" value="Спасибо за оплату! Ваш отчёт будет готов в течение 24 часов.">
+    </form>
+
+    <script>
+        // Автоматическая отправка данных формы после оплаты
+        window.addEventListener('DOMContentLoaded', function() {
+            // Получаем данные из localStorage
+            const formDataJson = localStorage.getItem('orderFormData');
+
+            if (!formDataJson) {
+                // Если данных нет - показываем ошибку
+                document.getElementById('statusIcon').textContent = '⚠️';
+                document.getElementById('statusTitle').textContent = 'Данные не найдены';
+                document.getElementById('statusMessage').textContent = 'Пожалуйста, вернитесь на главную и заполните форму заново.';
+                document.getElementById('homeButton').style.display = 'inline-block';
+                return;
+            }
+
+            const formData = JSON.parse(formDataJson);
+            const hiddenForm = document.getElementById('hiddenForm');
+
+            // Добавляем все поля в скрытую форму
+            Object.keys(formData).forEach(key => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = formData[key];
+                hiddenForm.appendChild(input);
+            });
+
+            // Добавляем timestamp оплаты
+            const paymentTime = document.createElement('input');
+            paymentTime.type = 'hidden';
+            paymentTime.name = 'payment_completed_at';
+            paymentTime.value = new Date().toLocaleString('ru-RU');
+            hiddenForm.appendChild(paymentTime);
+
+            // Отправляем форму автоматически
+            setTimeout(function() {
+                hiddenForm.submit();
+
+                // Показываем сообщение об успехе
+                document.getElementById('statusIcon').textContent = '✅';
+                document.getElementById('statusTitle').textContent = 'Спасибо за оплату!';
+                document.getElementById('statusMessage').textContent = 'Ваш заказ успешно обработан';
+                document.getElementById('nextSteps').style.display = 'block';
+                document.getElementById('successBox').style.display = 'block';
+                document.getElementById('homeButton').style.display = 'inline-block';
+
+                // Очищаем localStorage
+                localStorage.removeItem('orderFormData');
+                localStorage.removeItem('orderFormTimestamp');
+            }, 1500);
+        });
+    </script>
+
+</body>
+</html>
