@@ -44,11 +44,25 @@
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_autoresponse" value="Спасибо за оплату! Ваш отчёт будет готов в течение 24 часов.">
+        <input type="hidden" name="_next" value="https://yuryeremin17-svg.github.io/my-first-project-cloud-280126/thank-you.html?success=true">
     </form>
 
     <script>
         // Автоматическая отправка данных формы после оплаты
         window.addEventListener('DOMContentLoaded', function() {
+            // Проверяем, вернулись ли мы после успешной отправки FormSubmit
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                // Показываем сообщение об успехе
+                document.getElementById('statusIcon').textContent = '✅';
+                document.getElementById('statusTitle').textContent = 'Спасибо за оплату!';
+                document.getElementById('statusMessage').textContent = 'Ваш заказ успешно обработан';
+                document.getElementById('nextSteps').style.display = 'block';
+                document.getElementById('successBox').style.display = 'block';
+                document.getElementById('homeButton').style.display = 'inline-block';
+                return;
+            }
+
             // Получаем данные из localStorage
             const formDataJson = localStorage.getItem('orderFormData');
 
@@ -80,21 +94,13 @@
             paymentTime.value = new Date().toLocaleString('ru-RU');
             hiddenForm.appendChild(paymentTime);
 
-            // Отправляем форму автоматически
+            // Очищаем localStorage ДО отправки (форма отправит данные и перенаправит)
+            localStorage.removeItem('orderFormData');
+            localStorage.removeItem('orderFormTimestamp');
+
+            // Отправляем форму автоматически через 1.5 секунды
             setTimeout(function() {
                 hiddenForm.submit();
-
-                // Показываем сообщение об успехе
-                document.getElementById('statusIcon').textContent = '✅';
-                document.getElementById('statusTitle').textContent = 'Спасибо за оплату!';
-                document.getElementById('statusMessage').textContent = 'Ваш заказ успешно обработан';
-                document.getElementById('nextSteps').style.display = 'block';
-                document.getElementById('successBox').style.display = 'block';
-                document.getElementById('homeButton').style.display = 'inline-block';
-
-                // Очищаем localStorage
-                localStorage.removeItem('orderFormData');
-                localStorage.removeItem('orderFormTimestamp');
             }, 1500);
         });
     </script>
