@@ -1,0 +1,15 @@
+{
+  "name": "ai-business-analyzer",
+  "version": "1.0.0",
+  "description": "AI Business Analyzer - автоматическая генерация бизнес-отчётов",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.52.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -16,12 +16,12 @@
                 <p class="text-xl text-gray-600 mb-8" id="statusMessage">Пожалуйста, подождите несколько секунд</p>
 
                 <div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 mb-8 text-left" id="nextSteps" style="display: none;">
-                    <h2 class="text-lg font-bold text-gray-900 mb-3">Что дальше:</h2>
+                    <h2 class="text-lg font-bold text-gray-900 mb-3">Что в отчёте:</h2>
                     <ol class="space-y-3 text-gray-700">
-                        <li><strong>1. Подтверждение отправлено</strong> — проверьте ваш email</li>
-                        <li><strong>2. Эксперт получил заявку</strong> — начинаем работу над анализом</li>
-                        <li><strong>3. Отчёт будет готов</strong> в течение 24 часов</li>
-                        <li><strong>4. Получите 3 формата</strong> — PDF, Word и PowerPoint</li>
+                        <li><strong>✅ Executive Summary</strong> — ключевые выводы о вашем бизнесе</li>
+                        <li><strong>✅ Топ-3 Quick Wins</strong> — действия с максимальной отдачей</li>
+                        <li><strong>✅ 90-дневный план</strong> — пошаговый roadmap роста</li>
+                        <li><strong>✅ Финансовый анализ</strong> — где теряете и где можете заработать</li>
                     </ol>
                 </div>
 
@@ -48,15 +48,48 @@
     </form>
 
     <script>
+        // URL API для автоматической генерации отчёта
+        // После деплоя на Vercel замените на ваш URL
+        const API_URL = window.location.hostname === 'localhost'
+            ? 'http://localhost:3000/api/generate-report'
+            : '/api/generate-report';
+
+        // Функция генерации отчёта через API
+        async function generateReport(formData) {
+            try {
+                document.getElementById('statusMessage').textContent = 'Генерируем ваш персональный отчёт...';
+
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log('Report generated:', result);
+                    return true;
+                } else {
+                    console.error('API error:', await response.text());
+                    return false;
+                }
+            } catch (error) {
+                console.error('Failed to call API:', error);
+                return false;
+            }
+        }
+
         // Автоматическая отправка данных формы после оплаты
-        window.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('DOMContentLoaded', async function() {
             // Проверяем, вернулись ли мы после успешной отправки FormSubmit
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('success') === 'true') {
                 // Показываем сообщение об успехе
                 document.getElementById('statusIcon').textContent = '✅';
                 document.getElementById('statusTitle').textContent = 'Спасибо за оплату!';
-                document.getElementById('statusMessage').textContent = 'Ваш заказ успешно обработан';
+                document.getElementById('statusMessage').textContent = 'Ваш отчёт отправлен на email!';
                 document.getElementById('nextSteps').style.display = 'block';
                 document.getElementById('successBox').style.display = 'block';
                 document.getElementById('homeButton').style.display = 'inline-block';
@@ -76,32 +109,45 @@
             }
 
             const formData = JSON.parse(formDataJson);
-            const hiddenForm = document.getElementById('hiddenForm');
 
-            // Добавляем все поля в скрытую форму
-            Object.keys(formData).forEach(key => {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = key;
-                input.value = formData[key];
-                hiddenForm.appendChild(input);
-            });
+            // Добавляем timestamp
+            formData.payment_completed_at = new Date().toLocaleString('ru-RU');
 
-            // Добавляем timestamp оплаты
-            const paymentTime = document.createElement('input');
-            paymentTime.type = 'hidden';
-            paymentTime.name = 'payment_completed_at';
-            paymentTime.value = new Date().toLocaleString('ru-RU');
-            hiddenForm.appendChild(paymentTime);
-
-            // Очищаем localStorage ДО отправки (форма отправит данные и перенаправит)
+            // Очищаем localStorage
             localStorage.removeItem('orderFormData');
             localStorage.removeItem('orderFormTimestamp');
 
-            // Отправляем форму автоматически через 1.5 секунды
-            setTimeout(function() {
-                hiddenForm.submit();
-            }, 1500);
+            // Пробуем сгенерировать отчёт через API
+            document.getElementById('statusMessage').textContent = 'Генерируем ваш отчёт (это займёт 30-60 секунд)...';
+
+            const apiSuccess = await generateReport(formData);
+
+            if (apiSuccess) {
+                // API сработал - отчёт отправлен автоматически
+                document.getElementById('statusIcon').textContent = '✅';
+                document.getElementById('statusTitle').textContent = 'Отчёт отправлен!';
+                document.getElementById('statusMessage').textContent = 'Проверьте ваш email — отчёт уже там!';
+                document.getElementById('successBox').innerHTML = '<p class="text-sm text-gray-700"><strong>✅ Готово!</strong> Ваш персональный AI бизнес-анализ отправлен на email. Если не видите письмо — проверьте папку Спам.</p>';
+                document.getElementById('successBox').style.display = 'block';
+                document.getElementById('homeButton').style.display = 'inline-block';
+            } else {
+                // API не сработал - используем FormSubmit как fallback
+                const hiddenForm = document.getElementById('hiddenForm');
+
+                Object.keys(formData).forEach(key => {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = formData[key];
+                    hiddenForm.appendChild(input);
+                });
+
+                document.getElementById('statusMessage').textContent = 'Отправляем заявку...';
+
+                setTimeout(function() {
+                    hiddenForm.submit();
+                }, 1000);
+            }
         });
     </script>
 
